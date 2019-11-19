@@ -1,0 +1,46 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Listar Tipo Producto
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Listar Tipo Producto
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Listar Tipo de Producto
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <style>
+        th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Descripcion</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+                {% for tipo_productos in tipo_producto %}
+                <tr>
+                        <td>{{ tipo_productos.descripcion_tipo_producto}} </td>
+                        
+                        <td><button class="btn btn-info" ><a href="{% url 'appfarmaceutica:editar_tipo_producto' pk=tipo_productos.pk  %}"><h4 style="color:#ffffff ">Editar</h4></a></button></td>
+                        <td><button class="btn btn-danger" ><a href="{% url 'appfarmaceutica:eliminar_tipo_producto' pk=tipo_productos.pk  %}"><h4 style="color:#ffffff ">Eliminar</h4></a></button></td> 
+                        
+                </tr>
+                {% endfor %}
+    
+        </tbody>
+        </table>
+        <td><button class="btn btn-primary" ><a href="{% url 'appfarmaceutica:crear_tipo_producto'  %}"><h4 style="color:#ffffff ">Crear</h4></a></button></td>
+{% endblock contenido %}

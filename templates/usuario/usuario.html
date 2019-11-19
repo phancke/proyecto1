@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+    <h1>Lista de Usuarios
+          
+        {% if user.is_authenticated %}
+            <h3>{{ user.username }} | <a href="{% url "appfarmaceutica:logout" %}">Logout</a></h3>
+        {% else %}
+            <a href=" {% url "appfarmaceutica:authentication" %} ">login</a>
+        {% endif %}
+       
+    </h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Username</th>
+            <th>password</th>
+            
+
+            
+
+        </tr>
+        </thead>
+        <tbody>
+                {% for usuarios in usuario %}
+                <tr>
+                        <td>{{ usuarios.id}} </td>
+                        <td>{{ usuarios.username }}</td>
+                        <td>{{ usuarios.password }}</td>
+                       
+                       
+                </tr>
+                {% endfor %}
+</body>
+</html>

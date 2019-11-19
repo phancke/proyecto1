@@ -1,0 +1,24 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Crear Cliente
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Crear Cliente
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Crear Cliente
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="user_loged" value="user.id">
+        <button class="btn btn-primary" type="submit">Crear</button>
+    </form>
+{% endblock contenido %}

@@ -1,0 +1,27 @@
+
+{% extends 'plantilla.html' %}
+
+
+{% block titulo %}
+crear Pedido
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Crear Pedido
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Crear Pedido
+{% endblock titulo_contenido2 %}
+
+
+
+{% block contenido %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <button class="btn btn-primary" type="submit">Crear</button>
+    </form>
+{% endblock contenido %}
+    

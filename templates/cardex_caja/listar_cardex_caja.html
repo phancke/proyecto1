@@ -1,0 +1,56 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Listar Cardex Caja
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Listar Cardex Caja
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Listar Cardex Caja
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <style>
+        th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Fecha Creado</th>
+            <th>Pedidol</th>
+            <th>Caja</th>
+            <th>Numero de Pedido</th>
+            <th>Monto</th>
+
+        </tr>
+        </thead>
+        <tbody>
+                {% for cardex_cajas in cardex_caja %}
+                <tr>
+                        <td>{{ cardex_cajas.id}} </td>  
+                        <td>{{ cardex_cajas.fecha_creado_cardex_caja}}</td>
+                        <td>{{ cardex_cajas.Pedido}}</td>
+                        <td>{{ cardex_cajas.Caja}}</td>
+                        <td>{{ cardex_cajas.numero_pedido}}</td>
+                        <td>{{ cardex_cajas.monto}}</td>
+
+                        <td><button class="btn btn-info" ><a href="{% url 'appfarmaceutica:editar_cardex_caja' pk=cardex_cajas.pk  %}"><h4 style="color:#ffffff ">Editar</h4></a></button></td>
+                        <td><button class="btn btn-danger" ><a href="{% url 'appfarmaceutica:eliminar_cardex_caja' pk=cardex_cajas.pk  %}"><h4 style="color:#ffffff ">Eliminar</h4></a></button></td>
+                        
+                </tr>
+                {% endfor %}
+    
+        </tbody>
+        </table>
+        <td><button class="btn btn-primary" ><a href="{% url 'appfarmaceutica:crear_cardex_caja'  %}"><h4 style="color:#ffffff ">Crear</h4></a></button></td>
+{% endblock contenido %}

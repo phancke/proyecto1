@@ -1,0 +1,81 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Listar Tipo Producto
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Producto
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Lista de Productos
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+
+    <style>
+        th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+    <table>
+        <thead>
+        <tr>
+            
+            <th>Nombre</th>
+            <th>Codigo</th>
+            <th>Tipo de Producto</th>
+            <th>Precio</th>
+            <th>Costo</th>
+            <th>Cantidad</th>
+            <th>Sucursal</th>
+            <th>Estado</th>
+            <th>Fecha Modificado</th>
+            <th>Fecha Eliminado</th>
+            <th>Usuario</th>
+            
+
+        </tr>
+        </thead>
+        <tbody>
+                {% for productos in producto %}
+                <tr>
+                        
+                        <td>{{ productos.nombre_producto}} </td>
+                        <td>{{ productos.codigo_producto}} </td>
+                        <td>{{ productos.TipoProducto}} </td>
+                        <td>{{ productos.precio_producto}} </td>
+                        <td>{{ productos.costo_producto}} </td>
+                        <td>{{ productos.cantidad_producto}} </td>
+                        <td>{{ productos.Sucursal}} </td>
+                        <td>{{ productos.estado_producto}} </td>
+                        <td>{{ productos.fecha_modificado}} </td>
+                        <td>{{ productos.fecha_eliminado}} </td>
+                        <td>{{ productos.User}} </td>
+
+                        <td><button class="btn btn-info" ><a href="{% url 'appfarmaceutica:editar_producto' pk=productos.id  %}"><h4 style="color:#ffffff ">Editar</h4></a></button></td>
+                        <td><button class="btn btn-danger" ><a href="{% url 'appfarmaceutica:eliminar_producto' pk=productos.id  %}"><h4 style="color:#ffffff ">Eliminar</h4></a></button></td> 
+                        
+                       
+                </tr>
+                {% endfor %}
+
+                {% for sucursales in sucursal %}
+                <tr>
+                        
+                        <td>{{ sucursales.Sucursal}} </td>     
+                       
+                </tr>
+                {% endfor %}
+
+
+
+        </tbody>
+        </table>
+        <td><button class="btn btn-primary" ><a href="{% url 'appfarmaceutica:crear_producto'  %}"><h4 style="color:#ffffff ">Crear</h4></a></button></td>
+{% endblock contenido %}

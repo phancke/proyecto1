@@ -1,0 +1,55 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Listar Traslado Producto
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Listar Traslado Producto
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Listar Traslado Producto
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <style>
+        th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>fecha Creado de Traslado</th>
+            <th>Sucursal</th>
+            <th>Fecha de Traslado</th>
+            <th>Usuario</th>
+            
+
+        </tr>
+        </thead>
+        <tbody>
+                {% for traslado_productos in traslado_producto %}
+                <tr>
+                        <td>{{ traslado_productos.id}} </td>
+                        <td>{{ traslado_productos.fecha_creado_traslado}} </td>
+                        <td>{{ traslado_productos.Sucursal}} </td>
+                        <td>{{ traslado_productos.fecha_traslado}} </td>
+                        <td>{{ traslado_productos.User}} </td>
+
+                        <td><button class="btn btn-primary" ><a href="{% url 'appfarmaceutica:listar_detalle_traslado_producto' TrasladoProducto=traslado_productos.id %}  "><h4 style="color:#ffffff ">Detalle</h4></a></button></td>
+                        <td><button class="btn btn-info" ><a href="{% url 'appfarmaceutica:editar_traslado_producto' pk=traslado_productos.pk  %}"><h4 style="color:#ffffff ">Editar</h4></a></button></td>
+                        <td><button class="btn btn-danger" ><a href="{% url 'appfarmaceutica:eliminar_traslado_producto' pk=traslado_productos.pk  %}"><h4 style="color:#ffffff ">Eliminar</h4></a></button></td>
+                </tr>
+                {% endfor %}
+    
+        </tbody>
+        </table>
+        <td><button class="btn btn-primary" ><a href="{% url 'appfarmaceutica:crear_traslado_producto'  %}"><h4 style="color:#ffffff ">Crear</h4></a></button></td>
+{% endblock contenido %}

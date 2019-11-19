@@ -1,0 +1,23 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Editar Cliente
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Editar Cliente
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Editar Cliente
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <button class="btn btn-primary" type="submit">Actualizar</button>
+    </form>
+{% endblock contenido %}

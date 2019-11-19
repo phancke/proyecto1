@@ -1,0 +1,24 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Eliminar Sucursal
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Eliminar Sucursal
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Eliminar Sucursal
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>¿Esta seguro de eliminar la sucursal: {{ sucursal.id}}, {{sucursal.nombre_sucursal}}?</h1>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        
+    </form>
+    <button class="btn btn-info" ><a href="{% url 'appfarmaceutica:listar_sucursal'  %}"><h4 style="color:#ffffff ">Cancelar</h4></a></button>
+{% endblock contenido %}

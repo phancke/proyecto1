@@ -1,0 +1,59 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Listar Sucursal
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Listar Sucursal
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Listar Sucursales
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <style>
+        th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>ciudad</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Estado</th>
+            <th>Usuario</th>
+            
+
+        </tr>
+        </thead>
+        <tbody>
+                {% for sucursales in sucursal %}
+                <tr>
+                        <td>{{ sucursales.id}} </td>
+                        <td>{{ sucursales.nombre_sucursal}} </td>
+                        <td>{{ sucursales.Ciudad}} </td>
+                        <td>{{ sucursales.direccion_sucursal}} </td>
+                        <td>{{ sucursales.telefono_sucursal}} </td>
+                        <td>{{ sucursales.estado_sucursal}} </td>
+                        <td>{{ sucursales.User}} </td>
+
+                         <td><button class="btn btn-info" ><a href="{% url 'appfarmaceutica:editar_sucursal' pk=sucursales.pk  %}"><h4 style="color:#ffffff ">Editar</h4></a></button></td>
+                        <td><button class="btn btn-danger" ><a href="{% url 'appfarmaceutica:eliminar_sucursal' pk=sucursales.pk  %}"><h4 style="color:#ffffff ">Eliminar</h4></a></button></td>
+                       
+                </tr>
+                {% endfor %}
+    
+        </tbody>
+        </table>
+        <td><button class="btn btn-primary" ><a href="{% url 'appfarmaceutica:crear_sucursal'  %}"><h4 style="color:#ffffff ">Crear</h4></a></button></td>
+{% endblock contenido %}

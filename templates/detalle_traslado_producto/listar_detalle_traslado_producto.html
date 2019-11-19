@@ -1,0 +1,56 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Listar Detalle Traslado Producto
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Listar Detalle Traslado Producto
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Listar Detalle Traslado Producto
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <style>
+        th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Traslado de producto</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            
+
+            
+
+        </tr>
+        </thead>
+        <tbody>
+                {% for detalle_traslado_productos in detalle_traslado_producto %}
+                <tr>
+                        <td>{{ detalle_traslado_productos.id}} </td>
+                        <td>{{ detalle_traslado_productos.TrasladoProducto}} </td>
+                        <td>{{ detalle_traslado_productos.Producto}} </td>
+                        <td>{{ detalle_traslado_productos.cantidad_detalle_traslado_producto}} </td>
+
+                        <td><button class="btn btn-info" ><a href="{% url 'appfarmaceutica:editar_detalle_traslado_producto' pk=detalle_traslado_productos.id  %}"><h4 style="color:#ffffff ">Editar</h4></a></button></td>
+                        <td><button class="btn btn-danger" ><a href="{% url 'appfarmaceutica:eliminar_detalle_traslado_producto' pk=detalle_traslado_productos.id  %}"><h4 style="color:#ffffff ">Eliminar</h4></a></button></td>
+                       
+                </tr>
+                {% endfor %}
+    
+        </tbody>
+        </table>
+        <td><button class="btn btn-primary" ><a href="{% url 'appfarmaceutica:crear_detalle_traslado_producto'  %}"><h4 style="color:#ffffff ">Crear</h4></a></button></td>
+        
+{% endblock contenido %}

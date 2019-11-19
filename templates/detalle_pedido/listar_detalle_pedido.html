@@ -1,0 +1,58 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Listar Detalle Pedidos
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Lista Detalle de Pedidos
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Lista Detalle de Pedido
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <style>
+        th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Pedido</th>
+            <th>producto</th>
+            <th>Cantidad</th>
+            <th>Precio de producto</th>
+            <th>Total de pedido</th>
+            
+            
+
+
+        </tr>
+        </thead>
+        <tbody>
+                {% for detalle_pedidos in detalle_pedido %}
+                <tr>
+                        <td>{{ detalle_pedidos.id}} </td>
+                        <td>{{ detalle_pedidos.Pedido}}</td>
+                        <td>{{ detalle_pedidos.Producto}}</td>  
+                        <td>{{ detalle_pedidos.cantidad}}</td>
+                        <td>{{ detalle_pedidos.precio_producto}}</td>
+                        <td>{{ detalle_pedidos.total_pedido}}</td>
+                       
+                        <td><button class="btn btn-info" ><a href="{% url 'appfarmaceutica:editar_detalle_pedido' pk=detalle_pedidos.pk  %}"><h4 style="color:#ffffff ">Editar</h4></a></button></td>
+                        <td><button class="btn btn-danger" ><a href="{% url 'appfarmaceutica:eliminar_detalle_pedido' pk=detalle_pedidos.pk  %}"><h4 style="color:#ffffff ">Eliminar</h4></a></button></td>
+            
+                        
+                </tr>
+                {% endfor %}
+         <td><button class="btn btn-primary" ><a href="{% url 'appfarmaceutica:crear_detalle_pedido' %}"><h4 style="color:#ffffff ">Crear</h4></button></td>
+         <td><button class="btn btn-success" ><a href="{% url 'appfarmaceutica:listar_pedido' user.id %}"><h4 style="color:#ffffff ">Listo</h4></button></td>
+{% endblock contenido %}

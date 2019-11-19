@@ -1,0 +1,24 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Crear Detalle Traslado Producto
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Crear Detalle Traslado Producto
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Crear Detalle Traslado Producto
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <button class="btn btn-primary" type="submit">Crear</button>
+    </form>
+    <td><button class="btn btn-success" ><a href="{% url 'appfarmaceutica:listar_traslado_producto'  %}"><h4 style="color:#ffffff ">Listo</h4></a></button></td>
+{% endblock contenido %}

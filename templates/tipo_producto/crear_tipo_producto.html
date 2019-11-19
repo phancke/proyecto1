@@ -1,0 +1,23 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Crear Tipo Producto
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Crear Tipo Producto
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Crear un Tipo de Producto
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <button class="btn btn-primary" type="submit">Crear</button>
+    </form>
+{% endblock contenido %}

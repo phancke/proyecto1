@@ -1,0 +1,61 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Listar Activo Fijo
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Lista de Activo Fijo
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Lista de Activo Fijo
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+<style>
+        th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        
+        }
+    </style>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Sucursal</th>
+            <th>Nombre</th>
+            <th>Tipo Activo Fijo</th>
+            <th>Codigo</th>
+            <th>Costo</th>
+            <th>Cantidad</th>
+           
+            
+            
+        </tr>
+        </thead>
+        <tbody>
+                {% for activo_fijos in activo_fijo %}
+                <tr>
+                        <td>{{ activo_fijos.id}} </td>
+                        <td>{{ activo_fijos.Sucursal}}</td>
+                        <td>{{ activo_fijos.nombre_activo_fijo}}</td>
+                        <td>{{ activo_fijos.TipoActivoFijo}}</td>
+                        <td>{{ activo_fijos.codigo_activo_fijo}}</td>
+                        <td>{{ activo_fijos.costo_activo_fijo}}</td>  
+                        <td>{{ activo_fijos.cantidad_activo_fijo}}</td>  
+                          
+                        <td><button class="btn btn-info" ><a href="{% url 'appfarmaceutica:editar_activo_fijo' pk=activo_fijos.pk  %}"><h4 style="color:#ffffff ">Editar</h4></a></button></td>
+                        <td><button class="btn btn-danger" ><a href="{% url 'appfarmaceutica:eliminar_activo_fijo' pk=activo_fijos.pk  %}"><h4 style="color:#ffffff ">Eliminar</h4></a></button></td>
+                        
+                </tr>
+                {% endfor %}
+    
+        </tbody>
+        </table>
+        <td><button class="btn btn-primary" ><a href="{% url 'appfarmaceutica:crear_activo_fijo'  %}"><h4 style="color:#ffffff ">Crear</h4></a></button></td>
+{% endblock contenido %}

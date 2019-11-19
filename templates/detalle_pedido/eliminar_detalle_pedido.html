@@ -1,0 +1,28 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Eliminar Detalle Pedido
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Eliminar Detalle de Pedido
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Eliminar Detalle de Pedido
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>¿Esta seguro de eliminar detalle de pedido: {{ detalle_pedido.Pedido}}, {{detalle_pedido.Producto}}?</h1>
+        
+
+        <button class="btn btn-danger" type="submit">Eliminar</button>
+        
+    </form>
+        <div>
+            <button class="btn btn-secondary"><a href="{% url 'appfarmaceutica:listar_pedido'  %}"><h4 style="color:#ffffff ">Cancelar</h4></a></button>
+        </div>
+{% endblock contenido %}

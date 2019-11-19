@@ -1,0 +1,25 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+    Eliminar Tipo producto
+{% endblock titulo %}
+
+{% block titulo_contenido1 %}
+    Eliminar Tipo producto
+{% endblock titulo_contenido1 %}
+
+{% block titulo_contenido2 %}
+    Eliminar Tipo producto
+{% endblock titulo_contenido2 %}
+
+{% block contenido %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>¿Esta seguro de eliminar este tipo de producto: {{ tipo_producto.id}}, {{tipo_producto.descripcion_tipo_producto}}?</h1>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        
+        
+    </form>
+    <button class="btn btn-info" ><a href="{% url 'appfarmaceutica:listar_tipo_producto'  %}"><h4 style="color:#ffffff ">Cancelar</h4></a></button>
+{% endblock contenido %}
